@@ -60,7 +60,7 @@ var app = {
             options.params = params;
 
             var ft = new FileTransfer();
-            ft.upload(fileURL, "https://julien-beauverd.github.io/MyPWA-www/pdf/upload/test.pdf", win, fail);
+            ft.upload(fileURL, encodeURI("https://julien-beauverd.github.io/MyPWA-www/pdf/upload/test.pdf"), win, fail);
             console.log("3")
         });
 
