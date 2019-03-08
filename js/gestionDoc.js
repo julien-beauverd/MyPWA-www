@@ -42,7 +42,6 @@ var app = {
             }
 
             var fail = function (error) {
-                console.log(fail);
                 alert("An error has occurred: Code = " + error.code);
                 console.log("upload error source " + error.source);
                 console.log("upload error target " + error.target);
@@ -52,7 +51,7 @@ var app = {
             var options = new FileUploadOptions();
             options.fileKey = "file";
             options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
-            options.mimeType = "text/plain";
+            options.mimeType = "application/pdf";
             console.log("2")
             var params = {};
             params.value1 = "test";
