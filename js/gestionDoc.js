@@ -34,54 +34,7 @@ var app = {
 
         document.getElementById("exportFile").addEventListener("click", function () {
 
-            let pdfPath = 'pdf/cdc.pdf'
 
-            let permissions = cordova.plugins.permissions;
-            permissions.checkPermission(permissions.READ_EXTERNAL_STORAGE, checkPermissionCallback, null);
-
-            // Checking for permissions
-            function checkPermissionCallback(status) {
-                console.log('checking permissions');
-                console.log(status);
-                if (!status.hasPermission) {
-                    var errorCallback = function () {
-                        console.warn('Storage permission is not turned on')
-                    }
-                    // Asking permission to the user
-                    permissions.requestPermission(
-                        permissions.READ_EXTERNAL_STORAGE,
-                        function (status) {
-                            if (!status.hasPermission) {
-                                errorCallback()
-                            } else {
-                                // proceed with downloading
-                                downloadFile()
-                            }
-                        },
-                        errorCallback)
-                } else {
-                    downloadFile();
-                }
-            }
-
-            function downloadFile() {
-                let filePath = cordova.file.externalRootDirectory + 'download/' + 'my_file.pdf'
-                let fileTransfer = new window.FileTransfer()
-                let uri = encodeURI(decodeURIComponent(pdfPath))
-
-                // Downloading the file
-                fileTransfer.download(uri, filePath,
-                    function (entry) {
-                        console.log('Successfully downloaded file, full path is ' + entry.fullPath)
-                        console.log(entry)
-                    },
-                    function (error) {
-                        console.log('error')
-                        console.log(error)
-                    },
-                    false
-                )
-            }
         });
     },
 
