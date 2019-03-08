@@ -42,6 +42,7 @@ var app = {
             }
 
             var fail = function (error) {
+                console.log(fail);
                 alert("An error has occurred: Code = " + error.code);
                 console.log("upload error source " + error.source);
                 console.log("upload error target " + error.target);
