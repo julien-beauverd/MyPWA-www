@@ -219,6 +219,61 @@ module.exports = [
         "clobbers": [
             "fileChooser"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-network-information/www/network.js",
+        "id": "cordova-plugin-network-information.network",
+        "pluginId": "cordova-plugin-network-information",
+        "clobbers": [
+            "navigator.connection",
+            "navigator.network.connection"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-network-information/www/Connection.js",
+        "id": "cordova-plugin-network-information.Connection",
+        "pluginId": "cordova-plugin-network-information",
+        "clobbers": [
+            "Connection"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-network-information/src/browser/network.js",
+        "id": "cordova-plugin-network-information.NetworkInfoProxy",
+        "pluginId": "cordova-plugin-network-information",
+        "runs": true
+    },
+    {
+        "file": "plugins/cordova-plugin-zip/zip.js",
+        "id": "cordova-plugin-zip.Zip",
+        "pluginId": "cordova-plugin-zip",
+        "clobbers": [
+            "zip"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-file-md5/www/md5chksum.js",
+        "id": "cordova-plugin-file-md5.md5chksum",
+        "pluginId": "cordova-plugin-file-md5",
+        "clobbers": [
+            "md5chksum"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-file-downloader/www/downloader.min.js",
+        "id": "cordova-plugin-file-downloader.downloader",
+        "pluginId": "cordova-plugin-file-downloader",
+        "clobbers": [
+            "downloader"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-android-permissions/www/permissions-dummy.js",
+        "id": "cordova-plugin-android-permissions.Permissions",
+        "pluginId": "cordova-plugin-android-permissions",
+        "clobbers": [
+            "cordova.plugins.permissions"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -228,7 +283,12 @@ module.exports.metadata =
     "cordova-plugin-file": "6.0.1",
     "cordova-plugin-document-viewer": "0.9.10",
     "cordova-plugin-file-transfer": "1.7.1",
-    "cordova-filechooser": "1.0.3"
+    "cordova-filechooser": "1.0.3",
+    "cordova-plugin-network-information": "2.0.1",
+    "cordova-plugin-zip": "3.1.0",
+    "cordova-plugin-file-md5": "0.3.3",
+    "cordova-plugin-file-downloader": "0.4.0",
+    "cordova-plugin-android-permissions": "1.0.0"
 }
 // BOTTOM OF METADATA
 });

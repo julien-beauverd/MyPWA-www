@@ -31,7 +31,7 @@ var app = {
         this.receivedEvent('deviceready');
 
         //afficher un PDF-----------------------------------------------------------------------
-        document.getElementById("openPDF").addEventListener("click", function () {
+        document.getElementById("openFile").addEventListener("click", function () {
 
             switch (cordova.platformId) {
                 case "android":
