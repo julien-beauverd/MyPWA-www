@@ -54,13 +54,13 @@ var app = {
             options.mimeType = "application/pdf";
             console.log("2")
             var params = {};
-            params.value1 = "test";
-            params.value2 = "param";
+           // params.value1 = "test";
+           // params.value2 = "param";
 
             options.params = params;
 
             var ft = new FileTransfer();
-            ft.upload(fileURL, "https://julien-beauverd.github.io/MyPWA-www/pdf/upload/test.pdf", win, fail, options);
+            ft.upload(fileURL, "https://julien-beauverd.github.io/MyPWA-www/pdf/upload/test.pdf", win, fail);
             console.log("3")
         });
 
