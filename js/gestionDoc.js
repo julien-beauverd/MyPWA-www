@@ -47,11 +47,12 @@ var app = {
                 console.log("upload error target " + error.target);
             }
 
+            console.log("1")
             var options = new FileUploadOptions();
             options.fileKey = "file";
             options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
             options.mimeType = "text/plain";
-
+            console.log("2")
             var params = {};
             params.value1 = "test";
             params.value2 = "param";
@@ -60,6 +61,7 @@ var app = {
 
             var ft = new FileTransfer();
             ft.upload(fileURL, "https://julien-beauverd.github.io/MyPWA-www/pdf/upload/test.pdf", win, fail, options);
+            console.log("3")
         });
 
     },
