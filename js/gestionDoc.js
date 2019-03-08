@@ -29,13 +29,39 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function () {
 
-        document.getElementById("importFile").addEventListener("click", function () {
+        document.getElementById("submit").addEventListener("click", function (event) {
+            // !! Assumes variable fileURL contains a valid URL to a text file on the device,
+            //    for example, cdvfile://localhost/persistent/path/to/file.txt
+
+            fileURL = "https://julien-beauverd.github.io/MyPWA-www/pdf/cdc.pdf"
+
+            var win = function (r) {
+                console.log("Code = " + r.responseCode);
+                console.log("Response = " + r.response);
+                console.log("Sent = " + r.bytesSent);
+            }
+
+            var fail = function (error) {
+                alert("An error has occurred: Code = " + error.code);
+                console.log("upload error source " + error.source);
+                console.log("upload error target " + error.target);
+            }
+
+            var options = new FileUploadOptions();
+            options.fileKey = "file";
+            options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
+            options.mimeType = "text/plain";
+
+            var params = {};
+            params.value1 = "test";
+            params.value2 = "param";
+
+            options.params = params;
+
+            var ft = new FileTransfer();
+            ft.upload(fileURL, encodeURI("https://julien-beauverd.github.io/MyPWA-www/pdf/upload"), win, fail, options);
         });
 
-        document.getElementById("exportFile").addEventListener("click", function () {
-
-
-        });
     },
 
     // Update DOM on a Received Event
