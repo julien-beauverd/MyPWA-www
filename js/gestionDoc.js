@@ -54,7 +54,7 @@ var app = {
             options.mimeType = "application/pdf";
             options.chunkedMode = false;
 
-            serverURL = encodeURI("https://julien-beauverd.github.io/MyPWA-www/pdf/upload/test.pdf");
+            serverURL = encodeURI("https://julien-beauverd.github.io/MyPWA-www/pdf/upload/cdc.pdf");
 
             var ft = new FileTransfer();
             ft.upload(fileURL, serverURL, win, fail, options);
