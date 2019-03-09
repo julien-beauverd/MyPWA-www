@@ -29,12 +29,16 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function () {
 
+
+        console.log(FileTransfer);
+
         document.getElementById("submit").addEventListener("click", function (event) {
             // !! Assumes variable fileURL contains a valid URL to a text file on the device,
             //    for example, cdvfile://localhost/persistent/path/to/file.txt
 
-            fileURL = "https://julien-beauverd.github.io/MyPWA-www/pdf/cdc.pdf"
+            fileURL = "file:///C:/Users/julien-beauverd/Documents/GitHub/MyPWA/www/pdf/cdc.pdf";
 
+            console.log()
             var win = function (r) {
                 console.log("Code = " + r.responseCode);
                 console.log("Response = " + r.response);
@@ -47,22 +51,17 @@ var app = {
                 console.log("upload error target " + error.target);
             }
 
-            console.log("1")
             var options = new FileUploadOptions();
             options.fileKey = "file";
             options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
             options.mimeType = "application/pdf";
-            console.log("2")
-            var params = {};
-            params.value1 = "test";
-            params.value2 = "param";
+            options.chunkedMode = false;
 
-            options.params = params;
+            serverURL = encodeURI("https://julien-beauverd.github.io/MyPWA-www/pdf/upload/test.pdf");
 
             var ft = new FileTransfer();
-            ft.upload(fileURL, encodeURI("https://julien-beauverd.github.io/MyPWA-www/pdf/upload/test.pdf"), win, fail, options);
-            ft.upload("C:/Users/julien-beauverd/Desktop/fond-1.png", encodeURI("https://julien-beauverd.github.io/MyPWA-www/pdf/upload"), win, fail, options);
-            console.log("3")
+            ft.upload(fileURL, serverURL, win, fail, options);
+
         });
 
     },
