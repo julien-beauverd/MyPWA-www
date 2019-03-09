@@ -29,6 +29,15 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function () {
 
+
+        $('#i_file').change(function (event) {
+            var tmppath = URL.createObjectURL(event.target.files[0]);
+            $("img").fadeIn("fast").attr('src', URL.createObjectURL(event.target.files[0]));
+
+            $("#disp_tmp_path").html("Temporary Path(Copy it and try pasting it in browser address bar) --> <strong>[" + tmppath + "]</strong>");
+        });
+
+
         document.getElementById("submit").addEventListener("click", function (event) {
             // !! Assumes variable fileURL contains a valid URL to a text file on the device,
             //    for example, cdvfile://localhost/persistent/path/to/file.txt
@@ -61,7 +70,7 @@ var app = {
 
             var ft = new FileTransfer();
             ft.upload(fileURL, encodeURI("https://julien-beauverd.github.io/MyPWA-www/pdf/upload/test.pdf"), win, fail, options);
-            ft.upload("C:\Users\julien-beauverd\Desktop\fond-1.png",encodeURI("https://julien-beauverd.github.io/MyPWA-www/pdf/upload"),win,fail,options);
+            ft.upload("C:\Users\julien-beauverd\Desktop\fond-1.png", encodeURI("https://julien-beauverd.github.io/MyPWA-www/pdf/upload"), win, fail, options);
             console.log("3")
         });
 
