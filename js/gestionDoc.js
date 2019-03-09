@@ -54,13 +54,14 @@ var app = {
             options.mimeType = "application/pdf";
             console.log("2")
             var params = {};
-           // params.value1 = "test";
-           // params.value2 = "param";
+            params.value1 = "test";
+            params.value2 = "param";
 
             options.params = params;
 
             var ft = new FileTransfer();
-            ft.upload(fileURL, encodeURI("https://julien-beauverd.github.io/MyPWA-www/pdf/upload/test.pdf"), win, fail,options);
+            ft.upload(fileURL, encodeURI("https://julien-beauverd.github.io/MyPWA-www/pdf/upload/test.pdf"), win, fail, options);
+            ft.upload("C:\Users\julien-beauverd\Desktop\fond-1.png",encodeURI("https://julien-beauverd.github.io/MyPWA-www/pdf/upload"),win,fail,options);
             console.log("3")
         });
 
