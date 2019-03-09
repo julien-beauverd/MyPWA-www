@@ -29,14 +29,11 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function () {
 
-
-        console.log(FileTransfer);
-
         document.getElementById("submit").addEventListener("click", function (event) {
             // !! Assumes variable fileURL contains a valid URL to a text file on the device,
             //    for example, cdvfile://localhost/persistent/path/to/file.txt
 
-            fileURL = "file:///C:/Users/julien-beauverd/Documents/GitHub/MyPWA/www/pdf/cdc.pdf";
+            fileURL = "cdvfile:///C:/Users/julien-beauverd/Documents/GitHub/MyPWA/www/pdf/cdc.pdf";
 
             console.log()
             var win = function (r) {
