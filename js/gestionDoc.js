@@ -29,38 +29,34 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function () {
 
-        document.getElementById("submit").addEventListener("click", function (event) {
-            // !! Assumes variable fileURL contains a valid URL to a text file on the device,
-            //    for example, cdvfile://localhost/persistent/path/to/file.txt
+        document.getElementById("uploadFile").addEventListener("click", uploadFile);
 
-            fileURL = "cdvfile:///C:/Users/julien-beauverd/Documents/GitHub/MyPWA/www/pdf/cdc.pdf";
+        function uploadFile() {
+            var fileURL = "file:///C:/Users/julien-beauverd/Documents/GitHub/MyPWA-www/pdf/cdc.pdf"
+            var uri = encodeURI("/t/ozoto-1552233513/post");
+            var options = new FileUploadOptions();
+            options.fileKey = "file";
+            options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
+            options.mimeType = "text/plain";
 
-            console.log()
-            var win = function (r) {
+            var headers = { 'headerParam': 'headerValue' };
+            options.headers = headers;
+            var ft = new FileTransfer();
+            ft.upload(fileURL, uri, onSuccess, onError, options);
+
+            function onSuccess(r) {
                 console.log("Code = " + r.responseCode);
                 console.log("Response = " + r.response);
                 console.log("Sent = " + r.bytesSent);
             }
 
-            var fail = function (error) {
+            function onError(error) {
                 alert("An error has occurred: Code = " + error.code);
                 console.log("upload error source " + error.source);
                 console.log("upload error target " + error.target);
             }
 
-            var options = new FileUploadOptions();
-            options.fileKey = "file";
-            options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
-            options.mimeType = "application/pdf";
-            options.chunkedMode = false;
-
-            serverURL = encodeURI("https://julien-beauverd.github.io/MyPWA-www/pdf/upload/cdc.pdf");
-
-            var ft = new FileTransfer();
-            ft.upload(fileURL, serverURL, win, fail, options);
-
-        });
-
+        }
     },
 
     // Update DOM on a Received Event

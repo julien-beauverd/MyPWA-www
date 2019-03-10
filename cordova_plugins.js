@@ -282,6 +282,14 @@ module.exports = [
         "clobbers": [
             "FilesDownloader"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-firebase/www/firebase-browser.js",
+        "id": "cordova-plugin-firebase.FirebasePlugin",
+        "pluginId": "cordova-plugin-firebase",
+        "clobbers": [
+            "FirebasePlugin"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -297,7 +305,8 @@ module.exports.metadata =
     "cordova-plugin-file-md5": "0.3.3",
     "cordova-plugin-file-downloader": "0.4.0",
     "cordova-plugin-android-permissions": "1.0.0",
-    "cordova-plugin-files-downloader": "0.0.6"
+    "cordova-plugin-files-downloader": "0.0.6",
+    "cordova-plugin-firebase": "2.0.5"
 }
 // BOTTOM OF METADATA
 });
