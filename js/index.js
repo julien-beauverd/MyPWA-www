@@ -30,23 +30,57 @@ var app = {
     onDeviceReady: function () {
         this.receivedEvent('deviceready');
 
+        var btn = document.createElement("button");
+        btn.setAttribute("id","cdc-pe");
+        btn.setAttribute("type","button");
+        btn.setAttribute("class","btn btn-light");
+        btn.textContent = "open cdc-pe.pdf";
+        document.getElementById("openFile").appendChild(btn);
+
+        var btn = document.createElement("button");
+        btn.setAttribute("id","cdc-tb");
+        btn.setAttribute("type","button");
+        btn.setAttribute("class","btn btn-light");
+        btn.textContent = "open cdc-tb.pdf";
+        document.getElementById("openFile").appendChild(btn);
+
         //afficher un PDF-----------------------------------------------------------------------
-        document.getElementById("openFile").addEventListener("click", function () {
+        document.getElementById("cdc-pe").addEventListener("click", function () {
 
             switch (cordova.platformId) {
                 case "android":
-                    cordova.plugins.SitewaertsDocumentViewer.viewDocument("./pdf/cdc.pdf");
+                    cordova.plugins.SitewaertsDocumentViewer.viewDocument("./pdf/cdc-pe.pdf");
                     return;
                 case "windows":
-                    cordova.plugins.SitewaertsDocumentViewer.viewDocument("./pdf/cdc.pdf");
+                    cordova.plugins.SitewaertsDocumentViewer.viewDocument("./pdf/cdc-pe.pdf");
                     return;
                 case "ios":
-                    cordova.plugins.SitewaertsDocumentViewer.viewDocument("./pdf/cdc.pdf");
+                    cordova.plugins.SitewaertsDocumentViewer.viewDocument("./pdf/cdc-pe.pdf");
                     return;
                 case "browser":
-                    window.open('pdf/cdc.pdf', '_blank', 'fullscreen=yes');
+                    window.open('pdf/cdc-pe.pdf', '_blank', 'fullscreen=yes');
                     return;
             }
+        });
+        document.getElementById("cdc-tb").addEventListener("click", function () {
+
+            switch (cordova.platformId) {
+                case "android":
+                    cordova.plugins.SitewaertsDocumentViewer.viewDocument("./pdf/cdc-tb.pdf");
+                    return;
+                case "windows":
+                    cordova.plugins.SitewaertsDocumentViewer.viewDocument("./pdf/cdc-tb.pdf");
+                    return;
+                case "ios":
+                    cordova.plugins.SitewaertsDocumentViewer.viewDocument("./pdf/cdc-tb.pdf");
+                    return;
+                case "browser":
+                    window.open('pdf/cdc-tb.pdf', '_blank', 'fullscreen=yes');
+                    return;
+            }
+        });
+        document.getElementById("impExpFile").addEventListener("click", function () {
+            document.location.href="./gestionDoc.html";
         });
 
     },

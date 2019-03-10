@@ -29,34 +29,22 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function () {
 
-        document.getElementById("uploadFile").addEventListener("click", uploadFile);
+        var a = document.createElement("a");
+        a.setAttribute("href","pdf/cdc-pe.pdf");
+        a.setAttribute("download","cdc-pe");
+        a.setAttribute("type","button");
+        a.setAttribute("class","btn btn-light");
+        a.textContent = "download cdc-pe.pdf";
+        document.getElementById("downloadFile").appendChild(a);
 
-        function uploadFile() {
-            var fileURL = "file:///C:/Users/julien-beauverd/Documents/GitHub/MyPWA-www/pdf/cdc.pdf"
-            var uri = encodeURI("/t/ozoto-1552233513/post");
-            var options = new FileUploadOptions();
-            options.fileKey = "file";
-            options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
-            options.mimeType = "text/plain";
+        var a = document.createElement("a");
+        a.setAttribute("href","pdf/cdc-tb.pdf");
+        a.setAttribute("download","cdc-tb");
+        a.setAttribute("type","button");
+        a.setAttribute("class","btn btn-light");
+        a.textContent = "download cdc-tb.pdf";
+        document.getElementById("downloadFile").appendChild(a);
 
-            var headers = { 'headerParam': 'headerValue' };
-            options.headers = headers;
-            var ft = new FileTransfer();
-            ft.upload(fileURL, uri, onSuccess, onError, options);
-
-            function onSuccess(r) {
-                console.log("Code = " + r.responseCode);
-                console.log("Response = " + r.response);
-                console.log("Sent = " + r.bytesSent);
-            }
-
-            function onError(error) {
-                alert("An error has occurred: Code = " + error.code);
-                console.log("upload error source " + error.source);
-                console.log("upload error target " + error.target);
-            }
-
-        }
     },
 
     // Update DOM on a Received Event

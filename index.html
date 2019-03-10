@@ -36,22 +36,35 @@
     <meta name="viewport"
         content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-css/bootstrap.min.css">
+
     <link rel="manifest" href="manifest.json">
     <title>MYPWA - Gestion de documents et notifications</title>
 </head>
 
 <body>
-    <div class="app">
-        <h1>MYPWA - Gestion de documents et notifications</h1>
-        <div id="deviceready" class="blink">
-            <p class="event listening">Connecting to Device</p>
-            <p class="event received">Device is Ready</p>
-            <button id="openFile">open a file</button>
-            <button><a href="gestionDoc.html">import/export a file</a></button>
+    <div class="app-container">
+        <h1>MYPWA</h1>
+        <h4 class="text-center">Gestion de documents et notifications</h4>
+        <div id="deviceready">
+            <div class="row mt-5">
+                <div id="openFile" class="col text-center">
+                </div>
+                <div class="col text-center">
+                    <button id="impExpFile" type="button" class="btn btn-light">import/export a file</button>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col">
+                    <p class="event listening rounded-pill">Connecting to Device</p>
+                    <p class="event received rounded-pill">Device is Ready</p>
+                </div>
+            </div>
         </div>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/pwabuilder-sw-register.js"></script>
 </body>
 
 </html>
