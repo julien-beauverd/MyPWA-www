@@ -31,16 +31,16 @@ var app = {
         this.receivedEvent('deviceready');
 
         var btn = document.createElement("button");
-        btn.setAttribute("id","cdc-pe");
-        btn.setAttribute("type","button");
-        btn.setAttribute("class","btn btn-light");
+        btn.setAttribute("id", "cdc-pe");
+        btn.setAttribute("type", "button");
+        btn.setAttribute("class", "btn btn-light");
         btn.textContent = "open cdc-pe.pdf";
         document.getElementById("openFile").appendChild(btn);
 
         var btn = document.createElement("button");
-        btn.setAttribute("id","cdc-tb");
-        btn.setAttribute("type","button");
-        btn.setAttribute("class","btn btn-light");
+        btn.setAttribute("id", "cdc-tb");
+        btn.setAttribute("type", "button");
+        btn.setAttribute("class", "btn btn-light");
         btn.textContent = "open cdc-tb.pdf";
         document.getElementById("openFile").appendChild(btn);
 
@@ -80,7 +80,7 @@ var app = {
             }
         });
         document.getElementById("impExpFile").addEventListener("click", function () {
-            document.location.href="./gestionDoc.html";
+            document.location.href = "./gestionDoc.html";
         });
 
     },

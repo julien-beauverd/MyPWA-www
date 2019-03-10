@@ -30,18 +30,18 @@ var app = {
     onDeviceReady: function () {
 
         var a = document.createElement("a");
-        a.setAttribute("href","pdf/cdc-pe.pdf");
-        a.setAttribute("download","cdc-pe");
-        a.setAttribute("type","button");
-        a.setAttribute("class","btn btn-light");
+        a.setAttribute("href", "pdf/cdc-pe.pdf");
+        a.setAttribute("download", "cdc-pe");
+        a.setAttribute("type", "button");
+        a.setAttribute("class", "btn btn-light");
         a.textContent = "download cdc-pe.pdf";
         document.getElementById("downloadFile").appendChild(a);
 
         var a = document.createElement("a");
-        a.setAttribute("href","pdf/cdc-tb.pdf");
-        a.setAttribute("download","cdc-tb");
-        a.setAttribute("type","button");
-        a.setAttribute("class","btn btn-light");
+        a.setAttribute("href", "pdf/cdc-tb.pdf");
+        a.setAttribute("download", "cdc-tb");
+        a.setAttribute("type", "button");
+        a.setAttribute("class", "btn btn-light");
         a.textContent = "download cdc-tb.pdf";
         document.getElementById("downloadFile").appendChild(a);
 
