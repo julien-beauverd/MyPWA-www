@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <script type="text/javascript" src="pwabuilder-sw-register.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-css/bootstrap.min.css">
+    <link rel="manifest" href="manifest.json">
+    <title>import/export a file</title>
+</head>
+
+<body>
+    <div class="app-container">
+        <h2>import/export a file</h2>
+        <div id="deviceready">
+            <div class="row mt-5">
+                <div id="downloadFile" class="col text-center">
+                    <!-- <a href="pdf/cdc.pdf" download type="button" class="btn btn-light">export cdc.pdf</a>-->
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col text-center">
+                    <form>
+                        <input type="file" id="importFile" name="import a file">
+                        <button id="submit" type="submit" class="btn btn-light">envoyer</button>
+                    </form>
+
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col">
+                    <p class="event listening rounded-pill">Connecting to Device</p>
+                    <p class="event received rounded-pill">Device is Ready</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/gestionDoc.js"></script>
+</body>
+</html>
