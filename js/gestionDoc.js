@@ -53,7 +53,7 @@ var app = {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/pdf",
-                    "Authorization":"Bearer 7XeRwY1HFoPMs6kCI8o1z6jF"
+                    "Authorization":"Bearer AIzaSyCG9GOQ6lpy30usNOdnwAp3U16SckZwmJ4"
                 },
                 body: file // This is your file object
             }).then(
