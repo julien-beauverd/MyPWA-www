@@ -49,11 +49,10 @@ var app = {
 
         // This will upload the file after having read it
         const upload = (file) => {
-            fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=media', { // Your POST endpoint
+            fetch('https://www.filestackapi.com/api/store/S3?key=APhqjY4eMQkWlElRwz3NJz', { // Your POST endpoint
                 method: 'POST',
                 headers: {
-                    "Content-Type": "application/pdf",
-                    "Authorization":"Bearer AIzaSyCG9GOQ6lpy30usNOdnwAp3U16SckZwmJ4"
+                    "Content-Type": "application/pdf",                    
                 },
                 body: file // This is your file object
             }).then(
