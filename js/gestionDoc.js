@@ -1,3 +1,4 @@
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -29,48 +30,52 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function () {
 
-        var a = document.createElement("a");
-        a.setAttribute("href", "pdf/cdc-pe.pdf");
-        a.setAttribute("download", "cdc-pe");
-        a.setAttribute("type", "button");
-        a.setAttribute("class", "btn btn-light");
-        a.textContent = "download cdc-pe.pdf";
-        document.getElementById("downloadFile").appendChild(a);
-
+        //création d'un bouton download compatible avec navigateur et smartphone
         var a = document.createElement("a");
         a.setAttribute("href", "pdf/cdc-tb.pdf");
-        a.setAttribute("download", "cdc-tb");
         a.setAttribute("type", "button");
         a.setAttribute("class", "btn btn-light");
         a.textContent = "download cdc-tb.pdf";
         document.getElementById("downloadFile").appendChild(a);
 
-        const input = document.getElementById('fileinput');
+        // CODE PERMETTANT DE LISTER DYNAMIQUEMENT LES FICHIERS UPLOADER MAIS PAS EU LE TEMPS DE FINIR
+        //---------------------------------------------------------------------------------------
+       /* // Création d'une requête HTTP
+        var req = new XMLHttpRequest();
+        // Requête HTTP GET synchrone vers le fichier langages.txt publié localement
+        req.open("GET", "http://localhost:3000/list");
+        // Envoi de la requête
+        req.send();
+        // Affiche la réponse reçue pour la requête
+        console.log(req.responseText);*/
+        //--------------------------------------------------------------------------------------
 
-        // This will upload the file after having read it
-        const upload = (file) => {
-            fetch('https://www.filestackapi.com/api/store/S3?key=APhqjY4eMQkWlElRwz3NJz', { // Your POST endpoint
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/pdf",                    
+        /**
+         * fonction permettant d'uploader un fichier
+         * le fichier est envoyé lorsque l'utilisateur clique sur le bouton sendFile dans le formulaire.
+         * retourne un Send OK si l'upload a été executé avec succès
+         */
+        document.getElementById("sendFile").addEventListener('click', function (e) {
+            e.preventDefault();
+            var data = new FormData();
+            data.append('file-to-upload', $("input[type=file]")[0].files[0]);
+
+            $.ajax({
+                url: $("#formSendFile").attr('action'),
+                type: "POST",
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: data,
+                success: function (data) {
+                    console.log("Send OK");
                 },
-                body: file // This is your file object
-            }).then(
-                response => response.json() // if the response is a JSON object
-            ).then(
-                success => console.log(success) // Handle the success response object
-            ).catch(
-                error => console.log(error) // Handle the error response object
-            );
-        };
+                error: function (jXHR, textStatus, errorThrown) {
+                    alert(errorThrown);
+                }
+            });
 
-        // Event handler executed when a file is selected
-        const onSelectFile = () => upload(input.files[0]);
-
-        // Add a listener on your input
-        // It will be triggered when a file will be selected
-        input.addEventListener('change', onSelectFile, false);
-
+        });
     },
 
     // Update DOM on a Received Event

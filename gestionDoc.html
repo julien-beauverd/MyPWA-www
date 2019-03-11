@@ -12,6 +12,7 @@
     <script type="text/javascript" src="pwabuilder-sw-register.js"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="manifest" href="manifest.json">
     <title>import/export a file</title>
 </head>
@@ -26,14 +27,10 @@
             </div>
             <div class="row mt-5">
                 <div class="col text-center">
-                    <form>
-                        <div>
-                            <label>Select file to upload</label>
-                            <input type="file" id="fileinput">
-                        </div>
-                        <button type="submit">Convert</button>
+                    <form action="http://localhost:3000/upload" enctype="multipart/form-data" method="post" id="formSendFile">
+                        <input type="file" name="file-to-upload">
+                        <input type="button" id="sendFile" value="Upload">
                     </form>
-
                 </div>
             </div>
             <div class="row mt-5">
