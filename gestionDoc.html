@@ -23,14 +23,16 @@
         <div id="deviceready">
             <div class="row mt-5">
                 <div id="downloadFile" class="col text-center">
-                    <!-- <a href="pdf/cdc.pdf" download type="button" class="btn btn-light">export cdc.pdf</a>-->
                 </div>
             </div>
             <div class="row mt-5">
                 <div class="col text-center">
                     <form>
-                        <input type="file" id="importFile" name="import a file">
-                        <button id="submit" type="submit" class="btn btn-light">envoyer</button>
+                        <div>
+                            <label>Select file to upload</label>
+                            <input type="file">
+                        </div>
+                        <button type="submit">Convert</button>
                     </form>
 
                 </div>
@@ -46,4 +48,5 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/gestionDoc.js"></script>
 </body>
+
 </html>
